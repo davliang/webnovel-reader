@@ -11,5 +11,5 @@ def run() -> None:
         "webnovel_reader.main:app",
         host=settings.HOST,
         port=settings.PORT,
-        reload=True,
+        reload=settings.DEBUG,
     )
