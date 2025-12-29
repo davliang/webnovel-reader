@@ -1,0 +1,17 @@
+[project]
+name = "webnovel-reader"
+version = "0.1.0"
+description = "A small, template-based Epub reader for webnovels."
+readme = "README.md"
+authors = [
+    { name = "David", email = "70505457+davliang@users.noreply.github.com" },
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+webnovel-reader = "webnovel_reader:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
