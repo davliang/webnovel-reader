@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -10,6 +10,12 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     NOVELS_DIR: Path = Path("novels")
+
+    model_config = SettingsConfigDict(
+        env_prefix="APP_",
+        env_file_encoding="utf-8",
+        env_file=".env",
+    )
 
     def ensure_dirs(self):
         self.NOVELS_DIR.mkdir(exist_ok=True)

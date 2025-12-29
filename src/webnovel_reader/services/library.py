@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List
 
 from webnovel_reader.core.epub import EpubParser
 from webnovel_reader.domain.models import BookMetadata
@@ -28,3 +28,7 @@ class LibraryService:
                 continue
 
         self.books = found
+
+    def get_all_books(self) -> List[BookMetadata]:
+        self.scan()
+        return sorted(self.books.values(), key=lambda b: b.title)
